@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Bloom Organics - Products</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Dark slate text */
+        }
+        .gradient-bg {
+            background: linear-gradient(to right, #6EE7B7, #34D399); /* Green gradient */
+        }
+        .btn-primary {
+            background-color: #34D399; /* Green */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Fully rounded */
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #10B981; /* Darker green on hover */
+        }
+        .nav-link {
+            color: #475569; /* Slate gray */
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #10B981; /* Green on hover */
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 1rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center flex-wrap">
+            <!-- Brand Logo/Name -->
+            <a href="index.html" class="text-2xl font-bold text-emerald-600 rounded-lg p-2 hover:bg-gray-100 transition-colors">
+                Nature Bloom Organics
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="lg:hidden text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-md p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <!-- Navigation Links -->
+            <div id="nav-links" class="hidden lg:flex flex-col lg:flex-row lg:items-center w-full lg:w-auto mt-4 lg:mt-0 space-y-2 lg:space-y-0 lg:space-x-6">
+                <a href="index.html" class="nav-link font-semibold px-3 py-2 rounded-md hover:bg-gray-100">Home</a>
+                <a href="products.html" class="nav-link font-semibold px-3 py-2 rounded-md bg-gray-100 text-emerald-600">Products</a>
+                <a href="contactus.html" class="nav-link font-semibold px-3 py-2 rounded-md hover:bg-gray-100">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Section -->
+    <main class="py-16 px-4 flex-grow">
+        <div class="container mx-auto max-w-7xl">
+            <h1 class="text-4xl md:text-5xl font-bold text-center text-emerald-700 mb-12">Our Organic Skincare Products</h1>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1: Hydrating Rosehip Oil -->
+                <div class="product-card p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/300x300/e0f2f7/2980b9?text=Rosehip+Oil" alt="Hydrating Rosehip Oil" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Hydrating Rosehip Oil</h2>
+                    <p class="text-gray-600 mb-4 flex-grow">Rich in vitamins and essential fatty acids, this oil deeply nourishes and rejuvenates skin.</p>
+                    <p class="text-xl font-bold text-emerald-600 mb-4">$24.99</p>
+                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                </div>
+
+                <!-- Product 2: Calming Lavender Cleanser -->
+                <div class="product-card p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/300x300/e0f2f7/2980b9?text=Lavender+Cleanser" alt="Calming Lavender Cleanser" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Calming Lavender Cleanser</h2>
+                    <p class="text-gray-600 mb-4 flex-grow">Gently purifies and soothes sensitive skin, leaving it fresh and calm.</p>
+                    <p class="text-xl font-bold text-emerald-600 mb-4">$18.50</p>
+                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                </div>
+
+                <!-- Product 3: Brightening Vitamin C Serum -->
+                <div class="product-card p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/300x300/e0f2f7/2980b9?text=Vitamin+C+Serum" alt="Brightening Vitamin C Serum" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Brightening Vitamin C Serum</h2>
+                    <p class="text-gray-600 mb-4 flex-grow">Boosts radiance and evens skin tone with potent natural antioxidants.</p>
+                    <p class="text-xl font-bold text-emerald-600 mb-4">$32.00</p>
+                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                </div>
+
+                <!-- Product 4: Nourishing Shea Butter Cream -->
+                <div class="product-card p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/300x300/e0f2f7/2980b9?text=Shea+Butter+Cream" alt="Nourishing Shea Butter Cream" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Nourishing Shea Butter Cream</h2>
+                    <p class="text-gray-600 mb-4 flex-grow">Intensely moisturizes and protects dry, sensitive skin for lasting softness.</p>
+                    <p class="text-xl font-bold text-emerald-600 mb-4">$22.75</p>
+                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                </div>
+
+                <!-- Product 5: Detoxifying Green Tea Mask -->
+                <div class="product-card p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/300x300/e0f2f7/2980b9?text=Green+Tea+Mask" alt="Detoxifying Green Tea Mask" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Detoxifying Green Tea Mask</h2>
+                    <p class="text-gray-600 mb-4 flex-grow">Purifies pores and revitalizes complexion with antioxidant-rich green tea.</p>
+                    <p class="text-xl font-bold text-emerald-600 mb-4">$19.00</p>
+                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                </div>
+
+                <!-- Product 6: Soothing Aloe Vera Gel -->
+                <div class="product-card p-6 flex flex-col items-center text-center">
+                    <img src="https://placehold.co/300x300/e0f2f7/2980b9?text=Aloe+Vera+Gel" alt="Soothing Aloe Vera Gel" class="w-full h-48 object-cover rounded-lg mb-4 shadow-sm">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Soothing Aloe Vera Gel</h2>
+                    <p class="text-gray-600 mb-4 flex-grow">Calms irritated skin and provides instant hydration for a refreshing feel.</p>
+                    <p class="text-xl font-bold text-emerald-600 mb-4">$15.99</p>
+                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 mt-auto">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Nature Bloom Organics. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const menuButton = document.getElementById('menu-button');
+        const navLinks = document.getElementById('nav-links');
+
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
+        });
+
+        // Close menu when a link is clicked (for mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) { // Only for small screens
+                    navLinks.classList.add('hidden');
+                    navLinks.classList.remove('flex');
+                }
+            });
+        });
+
+        // Hide menu on resize if wider than mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                navLinks.classList.remove('hidden');
+                navLinks.classList.add('flex');
+            } else {
+                navLinks.classList.add('hidden');
+                navLinks.classList.remove('flex');
+            }
+        });
+    </script>
+</body>
+</html>
