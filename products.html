@@ -62,6 +62,28 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 1.5rem;
         }
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -250,6 +272,15 @@
         </div>
     </footer>
 
+    <!-- Order Confirmation Modal -->
+    <div id="order-confirmation-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 class="text-3xl font-bold text-emerald-700 mb-4">Order Placed!</h2>
+            <p class="text-gray-700 mb-6">Thank you for your purchase from Nature Bloom Organics. Your order has been successfully placed.</p>
+            <button id="close-modal-btn" class="btn-primary text-lg font-bold">Continue Shopping</button>
+        </div>
+    </div>
+
     <script>
         // JavaScript for mobile menu toggle
         const menuButton = document.getElementById('menu-button');
@@ -286,6 +317,8 @@
         const checkoutSection = document.getElementById('checkout-section');
         const orderSummaryItems = document.getElementById('order-summary-items');
         const orderTotal = document.getElementById('order-total');
+        const orderConfirmationModal = document.getElementById('order-confirmation-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
 
         buyNowButtons.forEach(button => {
             button.addEventListener('click', (event) => {
@@ -309,15 +342,18 @@
             });
         });
 
-        // Basic form submission handling (for demonstration)
+        // Form submission handling
         const checkoutForm = document.getElementById('checkout-form');
         checkoutForm.addEventListener('submit', (event) => {
             event.preventDefault(); // Prevent actual form submission
 
             // In a real application, you would send this data to a server
             // and handle payment processing.
-            alert('Order Placed! (This is a demo. No actual order processed.)');
-            // You might redirect to a confirmation page or clear the form here
+
+            // Show the order confirmation modal
+            orderConfirmationModal.classList.remove('hidden');
+
+            // Reset form and hide checkout section after "order" is placed
             checkoutForm.reset();
             orderSummaryItems.innerHTML = `
                 <div class="flex justify-between items-center">
@@ -327,6 +363,18 @@
             `;
             orderTotal.textContent = `$0.00`;
             checkoutSection.classList.add('hidden'); // Hide checkout after submission
+        });
+
+        // Close modal functionality
+        closeModalBtn.addEventListener('click', () => {
+            orderConfirmationModal.classList.add('hidden');
+        });
+
+        // Optional: Close modal if clicking outside the content
+        orderConfirmationModal.addEventListener('click', (event) => {
+            if (event.target === orderConfirmationModal) {
+                orderConfirmationModal.classList.add('hidden');
+            }
         });
     </script>
 </body>
