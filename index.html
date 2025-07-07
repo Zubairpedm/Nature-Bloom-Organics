@@ -3,85 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NatureBloom Organics - Home</title>
+    <title>Nature Bloom Organics - Home</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        .container { width: 80%; margin: auto; overflow: hidden; padding: 20px 0; }
-        header { background: #6b8e23; color: #fff; padding-top: 20px; min-height: 70px; border-bottom: #7ab81a 3px solid; }
-        header a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 16px; }
-        header ul { padding: 0; list-style: none; }
-        header li { display: inline; padding: 0 20px; }
-        header #branding { float: left; }
-        header #branding h1 { margin: 0; }
-        header nav { float: right; margin-top: 10px; }
-        header .highlight, header .current a { color: #d0e882; font-weight: bold; }
-        header a:hover { color: #d0e882; font-weight: bold; }
-        .hero { background: #a2b96e; color: #fff; text-align: center; padding: 50px 0; }
-        .hero h1 { margin-top: 0; font-size: 3em; }
-        .section-title { text-align: center; margin: 40px 0 20px; color: #6b8e23; }
-        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 20px 0; text-align: center; }
-        .product-item { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .product-item img { max-width: 100%; height: auto; border-radius: 5px; margin-bottom: 10px; }
-        .contact-section { text-align: center; padding: 40px 0; background-color: #e6ffe6; }
-        .contact-section a { display: inline-block; background: #6b8e23; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
-        .contact-section a:hover { background: #55771f; }
-        footer { padding: 20px; margin-top: 20px; color: #fff; background-color: #6b8e23; text-align: center; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Dark slate text */
+        }
+        .gradient-bg {
+            background: linear-gradient(to right, #6EE7B7, #34D399); /* Green gradient */
+        }
+        .btn-primary {
+            background-color: #34D399; /* Green */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Fully rounded */
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #10B981; /* Darker green on hover */
+        }
+        .nav-link {
+            color: #475569; /* Slate gray */
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #10B981; /* Green on hover */
+        }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">NatureBloom</span> Organics</h1>
+<body class="flex flex-col min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center flex-wrap">
+            <!-- Brand Logo/Name -->
+            <a href="index.html" class="text-2xl font-bold text-emerald-600 rounded-lg p-2 hover:bg-gray-100 transition-colors">
+                Nature Bloom Organics
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="lg:hidden text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-md p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+            <!-- Navigation Links -->
+            <div id="nav-links" class="hidden lg:flex flex-col lg:flex-row lg:items-center w-full lg:w-auto mt-4 lg:mt-0 space-y-2 lg:space-y-0 lg:space-x-6">
+                <a href="index.html" class="nav-link font-semibold px-3 py-2 rounded-md hover:bg-gray-100">Home</a>
+                <a href="products.html" class="nav-link font-semibold px-3 py-2 rounded-md hover:bg-gray-100">Products</a>
+                <a href="contactus.html" class="nav-link font-semibold px-3 py-2 rounded-md hover:bg-gray-100">Contact Us</a>
             </div>
-            <nav>
-                <ul>
-                    <li class="current"><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white py-20 px-4 text-center shadow-lg flex-grow flex items-center justify-center">
+        <div class="container mx-auto max-w-4xl">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Embrace Nature's Touch for Radiant Skin
+            </h1>
+            <p class="text-lg md:text-xl mb-8 opacity-90">
+                Discover our exquisite range of organic skincare products, crafted with the purest ingredients for a naturally beautiful you.
+            </p>
+            <a href="products.html" class="btn-primary text-lg font-bold inline-block shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                Explore Our Products
+            </a>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Embrace Nature's Touch for Your Skin</h1>
-            <p>At NatureBloom Organics, we believe in the power of nature to nourish and rejuvenate your skin. Our products are crafted with the finest organic ingredients, ensuring purity, effectiveness, and a gentle touch.</p>
+    <!-- About Us Section -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-5xl text-center">
+            <h2 class="text-4xl font-bold text-emerald-700 mb-8">Our Philosophy</h2>
+            <p class="text-lg leading-relaxed text-gray-700 mb-6">
+                At Nature Bloom Organics, we believe in the power of nature to nurture your skin. We are committed to creating high-quality, ethically sourced, and environmentally friendly skincare solutions that bring out your natural glow. Our products are free from harsh chemicals, parabens, and synthetic fragrances, ensuring a gentle yet effective experience.
+            </p>
+            <p class="text-lg leading-relaxed text-gray-700">
+                Join us on a journey to healthier, happier skin, rooted in the goodness of the earth.
+            </p>
         </div>
     </section>
 
-    <section class="container">
-        <h2 class="section-title">Featured Products</h2>
-        <div class="products-grid">
-            <div class="product-item">
-                <img src="https://via.placeholder.com/200x200?text=Product+1" alt="Organic Facial Cleanser">
-                <h3>Organic Facial Cleanser</h3>
-                <p>A gentle, purifying cleanser enriched with natural extracts to leave your skin fresh and radiant.</p>
+    <!-- Feature Section (Optional, but good for UX) -->
+    <section class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <!-- Feature 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div class="text-emerald-500 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">100% Organic</h3>
+                <p class="text-gray-600">Sourced from the purest natural ingredients, free from harmful chemicals.</p>
             </div>
-            <div class="product-item">
-                <img src="https://via.placeholder.com/200x200?text=Product+2" alt="Hydrating Serum">
-                <h3>Hydrating Serum</h3>
-                <p>Infuse your skin with deep hydration using our blend of hyaluronic acid and botanical oils.</p>
+            <!-- Feature 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div class="text-emerald-500 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.592 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.592-1M12 12c-1.11 0-2.08.402-2.592 1M12 12V11m0 1v1m0 0v1"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Ethically Sourced</h3>
+                <p class="text-gray-600">Committed to fair trade practices and sustainable harvesting.</p>
             </div>
-            <div class="product-item">
-                <img src="https://via.placeholder.com/200x200?text=Product+3" alt="Renewing Night Cream">
-                <h3>Renewing Night Cream</h3>
-                <p>Restore and revitalize your skin overnight with our rich, nutrient-packed night cream.</p>
+            <!-- Feature 3 -->
+            <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div class="text-emerald-500 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-3">Cruelty-Free</h3>
+                <p class="text-gray-600">Our products are never tested on animals, ensuring compassion.</p>
             </div>
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="container">
-            <h2>Ready to Experience NatureBloom?</h2>
-            <p>Have questions or want to learn more about our products?</p>
-            <a href="contact.html">Get in Touch</a>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 px-4 mt-auto">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Nature Bloom Organics. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">Terms of Service</a>
+            </div>
         </div>
-    </section>
-
-    <footer>
-        <p>NatureBloom Organics &copy; 2025</p>
     </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const menuButton = document.getElementById('menu-button');
+        const navLinks = document.getElementById('nav-links');
+
+        menuButton.addEventListener('click', () => {
+            navLinks.classList.toggle('hidden');
+            navLinks.classList.toggle('flex');
+        });
+
+        // Close menu when a link is clicked (for mobile)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) { // Only for small screens
+                    navLinks.classList.add('hidden');
+                    navLinks.classList.remove('flex');
+                }
+            });
+        });
+
+        // Hide menu on resize if wider than mobile breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                navLinks.classList.remove('hidden');
+                navLinks.classList.add('flex');
+            } else {
+                navLinks.classList.add('hidden');
+                navLinks.classList.remove('flex');
+            }
+        });
+    </script>
 </body>
 </html>
