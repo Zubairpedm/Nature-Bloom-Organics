@@ -43,6 +43,25 @@
             transform: translateY(-5px); /* Lift effect on hover */
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
         }
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #CBD5E0; /* Light gray border */
+            border-radius: 0.5rem; /* Rounded corners */
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #34D399; /* Green on focus */
+            box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.3); /* Green shadow on focus */
+        }
+        .summary-card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -80,7 +99,7 @@
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Hydrating Rosehip Oil</h2>
                     <p class="text-gray-600 mb-4 flex-grow">Rich in vitamins and essential fatty acids, this oil deeply nourishes and rejuvenates skin.</p>
                     <p class="text-xl font-bold text-emerald-600 mb-4">$24.99</p>
-                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                    <button class="btn-primary w-full text-lg font-bold buy-now-btn" data-product-name="Hydrating Rosehip Oil" data-product-price="24.99">Buy Now</button>
                 </div>
 
                 <!-- Product 2: Calming Lavender Cleanser -->
@@ -89,7 +108,7 @@
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Calming Lavender Cleanser</h2>
                     <p class="text-gray-600 mb-4 flex-grow">Gently purifies and soothes sensitive skin, leaving it fresh and calm.</p>
                     <p class="text-xl font-bold text-emerald-600 mb-4">$18.50</p>
-                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                    <button class="btn-primary w-full text-lg font-bold buy-now-btn" data-product-name="Calming Lavender Cleanser" data-product-price="18.50">Buy Now</button>
                 </div>
 
                 <!-- Product 3: Brightening Vitamin C Serum -->
@@ -98,7 +117,7 @@
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Brightening Vitamin C Serum</h2>
                     <p class="text-gray-600 mb-4 flex-grow">Boosts radiance and evens skin tone with potent natural antioxidants.</p>
                     <p class="text-xl font-bold text-emerald-600 mb-4">$32.00</p>
-                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                    <button class="btn-primary w-full text-lg font-bold buy-now-btn" data-product-name="Brightening Vitamin C Serum" data-product-price="32.00">Buy Now</button>
                 </div>
 
                 <!-- Product 4: Nourishing Shea Butter Cream -->
@@ -107,7 +126,7 @@
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Nourishing Shea Butter Cream</h2>
                     <p class="text-gray-600 mb-4 flex-grow">Intensely moisturizes and protects dry, sensitive skin for lasting softness.</p>
                     <p class="text-xl font-bold text-emerald-600 mb-4">$22.75</p>
-                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                    <button class="btn-primary w-full text-lg font-bold buy-now-btn" data-product-name="Nourishing Shea Butter Cream" data-product-price="22.75">Buy Now</button>
                 </div>
 
                 <!-- Product 5: Detoxifying Green Tea Mask -->
@@ -116,7 +135,7 @@
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Detoxifying Green Tea Mask</h2>
                     <p class="text-gray-600 mb-4 flex-grow">Purifies pores and revitalizes complexion with antioxidant-rich green tea.</p>
                     <p class="text-xl font-bold text-emerald-600 mb-4">$19.00</p>
-                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                    <button class="btn-primary w-full text-lg font-bold buy-now-btn" data-product-name="Detoxifying Green Tea Mask" data-product-price="19.00">Buy Now</button>
                 </div>
 
                 <!-- Product 6: Soothing Aloe Vera Gel -->
@@ -125,7 +144,96 @@
                     <h2 class="text-2xl font-semibold text-gray-800 mb-2">Soothing Aloe Vera Gel</h2>
                     <p class="text-gray-600 mb-4 flex-grow">Calms irritated skin and provides instant hydration for a refreshing feel.</p>
                     <p class="text-xl font-bold text-emerald-600 mb-4">$15.99</p>
-                    <button class="btn-primary w-full text-lg font-bold">Buy Now</button>
+                    <button class="btn-primary w-full text-lg font-bold buy-now-btn" data-product-name="Soothing Aloe Vera Gel" data-product-price="15.99">Buy Now</button>
+                </div>
+            </div>
+
+            <!-- Checkout Section (Initially Hidden) -->
+            <div id="checkout-section" class="hidden mt-16 bg-white p-8 rounded-xl shadow-lg">
+                <h1 class="text-4xl md:text-5xl font-bold text-center text-emerald-700 mb-10">Checkout</h1>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    <!-- Shipping Information -->
+                    <div class="lg:col-span-2">
+                        <h2 class="text-3xl font-semibold text-gray-800 mb-6">Shipping Information</h2>
+                        <form id="checkout-form" action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="fullName" class="block text-gray-700 text-sm font-medium mb-2">Full Name</label>
+                                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label for="address1" class="block text-gray-700 text-sm font-medium mb-2">Address Line 1</label>
+                                <input type="text" id="address1" name="address1" class="form-input" placeholder="123 Main St" required>
+                            </div>
+                            <div>
+                                <label for="address2" class="block text-gray-700 text-sm font-medium mb-2">Address Line 2 (Optional)</label>
+                                <input type="text" id="address2" name="address2" class="form-input" placeholder="Apt, Suite, Unit">
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div>
+                                    <label for="city" class="block text-gray-700 text-sm font-medium mb-2">City</label>
+                                    <input type="text" id="city" name="city" class="form-input" placeholder="Anytown" required>
+                                    </div>
+                                <div>
+                                    <label for="state" class="block text-gray-700 text-sm font-medium mb-2">State / Province</label>
+                                    <input type="text" id="state" name="state" class="form-input" placeholder="CA" required>
+                                </div>
+                                <div>
+                                    <label for="zip" class="block text-gray-700 text-sm font-medium mb-2">Zip / Postal Code</label>
+                                    <input type="text" id="zip" name="zip" class="form-input" placeholder="12345" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 text-sm font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 123-4567" required>
+                            </div>
+
+                            <h2 class="text-3xl font-semibold text-gray-800 mt-10 mb-6">Payment Information</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <label for="cardNumber" class="block text-gray-700 text-sm font-medium mb-2">Card Number</label>
+                                    <input type="text" id="cardNumber" name="cardNumber" class="form-input" placeholder="XXXX XXXX XXXX XXXX" required>
+                                </div>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div>
+                                        <label for="expMonth" class="block text-gray-700 text-sm font-medium mb-2">Expiration Month</label>
+                                        <input type="text" id="expMonth" name="expMonth" class="form-input" placeholder="MM" required>
+                                    </div>
+                                    <div>
+                                        <label for="expYear" class="block text-gray-700 text-sm font-medium mb-2">Expiration Year</label>
+                                        <input type="text" id="expYear" name="expYear" class="form-input" placeholder="YY" required>
+                                    </div>
+                                    <div>
+                                        <label for="cvv" class="block text-gray-700 text-sm font-medium mb-2">CVV</label>
+                                        <input type="text" id="cvv" name="cvv" class="form-input" placeholder="123" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-primary w-full md:w-auto text-lg font-bold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                                Place Order
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="lg:col-span-1">
+                        <div class="summary-card">
+                            <h2 class="text-3xl font-semibold text-gray-800 mb-6">Order Summary</h2>
+                            <div id="order-summary-items" class="space-y-4 text-gray-700">
+                                <!-- Products will be dynamically added here -->
+                                <div class="flex justify-between items-center">
+                                    <span>No items in cart.</span>
+                                    <span>$0.00</span>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 pt-4 mt-4">
+                                <div class="flex justify-between items-center font-semibold text-xl">
+                                    <span>Total</span>
+                                    <span id="order-total">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -171,6 +279,54 @@
                 navLinks.classList.add('hidden');
                 navLinks.classList.remove('flex');
             }
+        });
+
+        // JavaScript for showing checkout section and updating summary
+        const buyNowButtons = document.querySelectorAll('.buy-now-btn');
+        const checkoutSection = document.getElementById('checkout-section');
+        const orderSummaryItems = document.getElementById('order-summary-items');
+        const orderTotal = document.getElementById('order-total');
+
+        buyNowButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productName = event.target.dataset.productName;
+                const productPrice = parseFloat(event.target.dataset.productPrice);
+
+                // Show the checkout section
+                checkoutSection.classList.remove('hidden');
+
+                // Clear previous items and add the selected product to summary
+                orderSummaryItems.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span>${productName}</span>
+                        <span>$${productPrice.toFixed(2)}</span>
+                    </div>
+                `;
+                orderTotal.textContent = `$${productPrice.toFixed(2)}`;
+
+                // Scroll to the checkout section
+                checkoutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Basic form submission handling (for demonstration)
+        const checkoutForm = document.getElementById('checkout-form');
+        checkoutForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent actual form submission
+
+            // In a real application, you would send this data to a server
+            // and handle payment processing.
+            alert('Order Placed! (This is a demo. No actual order processed.)');
+            // You might redirect to a confirmation page or clear the form here
+            checkoutForm.reset();
+            orderSummaryItems.innerHTML = `
+                <div class="flex justify-between items-center">
+                    <span>No items in cart.</span>
+                    <span>$0.00</span>
+                </div>
+            `;
+            orderTotal.textContent = `$0.00`;
+            checkoutSection.classList.add('hidden'); // Hide checkout after submission
         });
     </script>
 </body>
